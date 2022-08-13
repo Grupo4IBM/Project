@@ -6,6 +6,12 @@ package com.tudoDeBom.Project.Model;
  * 
  * @Author Cristhiane Barros da Cruz
  * @Since 12/08/2022
+ * @Version 1.0.0
+ * 
+ * @Author Caio Henrique Negrão da Silva
+ * @Since 13/08/2022
+ * @Version 1.0.1
+ * Descrição: Criação do construtor Cliente().
  * */
 
 
@@ -35,6 +41,10 @@ public class Cliente {
 		this.cpf = cpf;
 		this.endereco = endereco;
 		this.dataNasc = dataNasc;
+	}
+
+	public Cliente() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getIdCliente() {
