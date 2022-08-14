@@ -59,10 +59,6 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public Cliente() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public int getIdCliente() {
 		return idCliente;
 	}
