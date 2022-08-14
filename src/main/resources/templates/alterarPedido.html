@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head th:fragment="headCust">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<title>Alterar</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary"
+		style="padding: 10px 30px 10px 30px">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"><em>#TudoDeBom</em></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+				aria-controls="navbarColor01" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item"><a class="btn btn-light my-2 my-sm-0"
+					href="index.html">Voltar <span class="visually-hidden">(current)</span>
+				</a></li>
+			</ul>
+	</nav>
+
+	<div class="border-primary"
+		style="margin: 5% auto; display: flex; justify-content: center;">
+		<form style="width: 50vw;" action="#"
+			th:action="@{/crud/update/salvar}" th:object="${user}" method="post">
+			<fieldset>
+				<legend style="text-align: center;">Alterar Produto</legend>
+				<div class="form-group">
+					<label for="exampleInputEmail1" class="form-label mt-4">ID [Código do Produto]</label>
+					<input type="text" class="form-control" name="nome" id="nome"
+						readonly="" th:field="*{id}">
+						<div class="form-group">
+							<label for="exampleInputEmail1" class="form-label mt-4">Nome do Produto</label>
+							<input type="text" class="form-control" name="nome" id="nome"
+								placeholder="Nome e Sobrenome" th:field="*{nome}">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1" class="form-label mt-4">Preço R$</label>
+							<input type="number" class="form-control" name="preco" id="preco"
+								placeholder="Exemplo: 1299.99" th:field="*{email}">
+						</div>
+						
+						<div class="form-group">
+							<label for="exampleInputEmail1" class="form-label mt-4">Tipo de Produto</label><br>
+							<input type="radio" name="tipoProduto" id="tipoProduto"
+								th:field="*{tipoProduto}"> Medicamento convencional
+							<input style="margin-left:30px" type="radio" name="tipoProduto" id="tipoProduto"
+								th:field="*{tipoProduto}"> Medicamento genérico
+							<input style="margin-left:30px" type="radio" name="tipoProduto" id="tipoProduto"
+								th:field="*{tipoProduto}"> Outro produto
+						</div>
+						
+						<div class="form-group">
+							<label for="exampleInputEmail1" class="form-label mt-4">Quantidade</label>
+							<input type="number" class="form-control" name="estoque" id="estoque"
+								placeholder="Quantidade de produtos para cadastro" th:field="*{estoque}">
+						</div>
+						
+						<input type="submit" class="btn btn-lg btn-primary"
+							style="margin: 20px 5% 0 10%; width: 40%;" value="Cadastrar"></input><a
+							href="listarProduto.html" class="btn btn-lg btn-light"
+							style="margin-top: 20px; width: 40%;">Cancelar</a>
+			</fieldset>
+		</form>
+	</div>
+	<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+
+</html>

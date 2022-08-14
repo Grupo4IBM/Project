@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head th:fragment="headCust">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<title>Atualização de Cliente</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary"
+		style="padding: 10px 30px 10px 30px">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="index.html"><em>#TudoDeBom</em></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+				aria-controls="navbarColor01" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="formularioCliente.html"><em>Cadastrar Cliente</em></a>
+			</div>
+			<div class="container-fluid">
+				<a class="navbar-brand" href="formularioProduto.html"><em>Cadastrar Produto</em></a>
+			</div>
+			
+			<div class="container-fluid">
+				<a class="navbar-brand" href="formularioPedido.html"><em>Cadastrar Pedido</em></a>
+			</div>
+			<div class="container-fluid">
+				<a class="navbar-brand" href="listarCliente.html"><em>Listar Clientes</em></a>
+			</div>
+			<div class="container-fluid">
+				<a class="navbar-brand" href="listarPedido.html"><em>Histórico de Transações</em></a>
+			</div>
+			<div class="container-fluid">
+				<a class="navbar-brand" href="listarProduto.html"><em>Estoque</em></a>
+			</div>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item"><a class="btn btn-light my-2 my-sm-0"
+					href="index.html">Voltar <span class="visually-hidden">(current)</span>
+				</a></li>
+			</ul>
+	</nav>
+
+	<div class="border-primary"
+		style="margin: 5% auto; display: flex; justify-content: center;">
+		<form style="width: 50vw;" action="#"
+			th:action="@{/crud/update/salvar}" th:object="${user}" method="post">
+			<fieldset>
+				<legend style="text-align: center;">Atualização de Cadastro de Cliente</legend>
+				<div class="form-group">
+					<label for="exampleInputEmail1" class="form-label mt-4">Id</label>
+					<input type="text" class="form-control" name="nome" id="nome"
+						readonly="" th:field="*{id}">
+				</div>
+				<div class="form-group">
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="form-label mt-4">Nome</label>
+						<input type="text" class="form-control" name="nome" id="nome"
+							placeholder="Nome e Sobrenome" th:field="*{nome}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="form-label mt-4">Email</label>
+						<input type="email" class="form-control" name="email" id="email"
+							placeholder="nome@email.com" th:field="*{email}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="form-label mt-4">Telefone</label>
+						<input type="text" class="form-control" name="telefone" id="telefone"
+							placeholder="(xx)xxxxx-xxxxx" th:field="*{telefone}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="form-label mt-4">CPF</label>
+						<input type="text" class="form-control" name="cpf" id="CPF"
+							placeholder="xxx.xxx.xxx-xx" th:field="*{cpf}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="form-label mt-4">Endereço</label>
+						<input type="text" class="form-control" name="endereco" id="enredeco"
+							placeholder="Av xxxx, nº x, Bairro, Cidade, Cep, Estado" th:field="*{cpf}">
+					</div>
+				</div>
+				<input type="submit" class="btn btn-lg btn-primary"
+					style="margin: 20px 5% 0 10%; width: 40%;" value="Salvar"></input><a
+					href="listarCliente.html" class="btn btn-lg btn-light"
+					style="margin-top: 20px; width: 40%;">Cancelar</a>
+			</fieldset>
+		</form>
+	</div>
+	<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+
+</html>

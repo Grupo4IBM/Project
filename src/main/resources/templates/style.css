@@ -1,0 +1,100 @@
+body {
+  text-align: center;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+header {
+  margin-top: 45px;
+}
+
+h1 {
+  margin-right: 90px;
+  text-align: right;
+  font-size: 40px;
+  color: darkred;
+}
+
+h2 {
+  font-size: 35px;
+  color: rebeccapurple;
+}
+
+main{
+  padding: 50px;
+  display:flex;
+}
+
+div {
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  font-size: 20px;
+}
+
+h2 a{
+  text-decoration: none;
+  font-weight: 900;
+}
+
+li {
+  margin-top: 30px;
+}
+
+li a{
+  font-size: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left:-50px;
+  color: rgb(124, 72, 177);
+}
+
+li a:hover {
+  color: darkred;
+  cursor: grab;
+  font-size: 28px;
+  transition: 600ms;
+}
+
+div {
+  width: 33%;
+}
+
+@media only screen and (max-width: 900px) {
+  main {
+    display: block;
+  }
+  div {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 35px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  li a {
+    font-size: 20px;
+  }
+
+  li a:hover {
+    color: darkred;
+    cursor: grab;
+    font-size: 23px;
+    transition: 600ms;
+  }
+
+}
