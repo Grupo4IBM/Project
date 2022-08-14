@@ -1,5 +1,12 @@
 package com.tudoDeBom.Project.Model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /** 
  * A classe <b>Pedido<b> é responsável por armazenar as 
  * informações referentes aos pedidos realizados por clientes.
@@ -9,19 +16,42 @@ package com.tudoDeBom.Project.Model;
  * 
  * @Author Cassia Roberta Maria Leal
  * @Since 12/08/2022
+ * @Version 1.0.0
+ * 
+ * @Author Caio Henrique Negrão da Silva
+ * @Since 13/08/2022
+ * @Version 1.0.1
+ * Descrição: Alteração de atributos.
+ * Implementacao das anotacoes JPA.
  * */
 
+@Entity
+@Table(name="pedido")
 public class Pedido {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int numeroPedido;
-	private String status;
-	private String data;
-	private double valorBruto;
-	private double valorLiquido;
-	private double desconto;
 	
-	public Pedido(int numeroPedido, String status, String data, double valorBruto, double valorLiquido,
-			double desconto) {
+	@Column(name="status", nullable=false)
+	private String status;
+	
+	@Column(name="data", nullable=false)
+	private String data;
+	
+	@Column(name="valor_bruto", nullable=false)
+	private double valorBruto;
+	
+	@Column(name="valor_liquido", nullable=false)
+	private double valorLiquido;
+	
+	@Column(name="desconto", nullable=false)
+	private double desconto;
+		
+	private Cliente cliente; 
+	
+	public Pedido(int numeroPedido, String status, String data, double valorBruto, double valorLiquido, double desconto,
+			Cliente cliente) {
 		super();
 		this.numeroPedido = numeroPedido;
 		this.status = status;
@@ -29,6 +59,7 @@ public class Pedido {
 		this.valorBruto = valorBruto;
 		this.valorLiquido = valorLiquido;
 		this.desconto = desconto;
+		this.cliente = cliente;
 	}
 
 	public int getNumeroPedido() {
@@ -79,12 +110,18 @@ public class Pedido {
 		this.desconto = desconto;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public String toString() {
 		return "Pedido [numeroPedido=" + numeroPedido + ", status=" + status + ", data=" + data + ", valorBruto="
-				+ valorBruto + ", valorLiquido=" + valorLiquido + ", desconto=" + desconto + "]";
+				+ valorBruto + ", valorLiquido=" + valorLiquido + ", desconto=" + desconto + ", cliente=" + cliente
+				+ "]";
 	}
-	
-	
-	
 }
