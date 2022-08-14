@@ -15,6 +15,12 @@ import javax.persistence.Table;
  * 
  * @Author Cristhiane Barros da Cruz
  * @Since 12/08/2022
+ * @Version 1.0.0
+ * 
+ * @Author Caio Henrique Negrão da Silva
+ * @Since 13/08/2022
+ * @Version 1.0.1
+ * Descrição: Criação do construtor Cliente().
  * */
 
 @Entity
@@ -51,6 +57,10 @@ public class Cliente {
 		this.telefone = telefone;
 		this.email = email;
 		this.cpf = cpf;
+	}
+
+	public Cliente() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getIdCliente() {

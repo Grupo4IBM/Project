@@ -9,6 +9,12 @@ package com.tudoDeBom.Project.Model;
  * 
  * @Author Cassia Roberta Maria Leal
  * @Since 12/08/2022
+ * @Version 1.0.0
+ * 
+ * @Author Caio Henrique Negrão da Silva
+ * @Since 13/08/2022
+ * @Version 1.0.1
+ * Descrição: Alteração de atributos.
  * */
 
 public class Pedido {
@@ -19,9 +25,12 @@ public class Pedido {
 	private double valorBruto;
 	private double valorLiquido;
 	private double desconto;
+	private Cliente cliente = new Cliente();
 	
-	public Pedido(int numeroPedido, String status, String data, double valorBruto, double valorLiquido,
-			double desconto) {
+
+
+	public Pedido(int numeroPedido, String status, String data, double valorBruto, double valorLiquido, double desconto,
+			Cliente cliente) {
 		super();
 		this.numeroPedido = numeroPedido;
 		this.status = status;
@@ -29,6 +38,7 @@ public class Pedido {
 		this.valorBruto = valorBruto;
 		this.valorLiquido = valorLiquido;
 		this.desconto = desconto;
+		this.cliente = cliente;
 	}
 
 	public int getNumeroPedido() {
