@@ -1,40 +1,56 @@
 package com.tudoDeBom.Project.Model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /** 
  * A classe <b>Cliente<b> é responsável por armazenar as informações 
  * pessoais e de contato dos clientes cadastrados na loja.
  * 
+ * Utilizamos anotações JPA para fazer o mapeamento objeto-relacional.
  * 
  * @Author Cristhiane Barros da Cruz
  * @Since 12/08/2022
  * */
 
-
+@Entity
+@Table(name = "cliente")
 public class Cliente {
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idCliente;
 	
+	@Column(name="nome_cliente", nullable=false)
 	private String nomeCliente;
 	
+	@Column(name="telefone", nullable=false)
 	private String telefone;
 	
+	@Column(name="email", nullable=false)
 	private String email;
 	
+	@Column(name="cpf", nullable=false, unique=true)
 	private String cpf;
 	
-	private String endereco;
-	
-	private String dataNasc;
+	//private String endereco;   <- verificar se essas infos sao realmente necessarias
+	//private String dataNasc;
 
-	public Cliente(int idCliente, String nomeCliente, String telefone, String email, String cpf, String endereco,
-			String dataNasc) {
+	public Cliente() {
+		super();
+	}
+	
+	public Cliente(int idCliente, String nomeCliente, String telefone, String email, String cpf) {
 		super();
 		this.idCliente = idCliente;
 		this.nomeCliente = nomeCliente;
 		this.telefone = telefone;
 		this.email = email;
 		this.cpf = cpf;
-		this.endereco = endereco;
-		this.dataNasc = dataNasc;
 	}
 
 	public int getIdCliente() {
@@ -77,26 +93,10 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-
-	public String getDataNasc() {
-		return dataNasc;
-	}
-
-	public void setDataNasc(String dataNasc) {
-		this.dataNasc = dataNasc;
-	}
-
 	@Override
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", nomeCliente=" + nomeCliente + ", telefone=" + telefone
-				+ ", email=" + email + ", cpf=" + cpf + ", endereco=" + endereco + ", dataNasc=" + dataNasc + "]";
+				+ ", email=" + email + ", cpf=" + cpf + "]";
 	}
 	
 }
