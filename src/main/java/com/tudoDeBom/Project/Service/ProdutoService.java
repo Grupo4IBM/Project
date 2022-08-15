@@ -1,5 +1,12 @@
 package com.tudoDeBom.Project.Service;
 
+/** 
+ * @author Cristhiane Barros da Cruz
+ * @since 15/08/2022
+ * @version 1.0.0
+ * */
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,18 +21,36 @@ public class ProdutoService implements ProdutoServiceInterface {
 
 	@Autowired
 	private ProdutoRepository produtoRepo;
-	
-	//método que recupera do banco de dados todos os registros de produtos existentes 
-	@Override
-	public List<Produto> listar(){
-		return (List<Produto>) produtoRepo.findAll();
+
+	@Override      //READ-Retorna todos os registros de produtos
+	public ArrayList<Produto> listar() {
+		// TODO Auto-generated method stub
+		return (ArrayList<Produto>)produtoRepo.findAll();
 	}
-		
-	//método que busca no banco de dados pelo id do produto
-	@Override
-	public Optional<Produto> listarPeloId(int idProduto){
-		return (Optional<Produto>) produtoRepo.findById(idProduto);	
-		
+
+	@Override      //CREATE-Registra um novo produto
+	public Produto novo(Produto novo) {
+		// TODO Auto-generated method stub
+		return produtoRepo.save(novo);
+	}
+
+	@Override      //UPDATE-Atualiza produto existente no banco de dados
+	public Produto editar(Produto atualizado) {
+		// TODO Auto-generated method stub
+		return produtoRepo.save(atualizado);
+	}
+
+	@Override     //DELETE-Excluir produto da database
+	public void excluir(Integer id) {
+		// TODO Auto-generated method stub
+		produtoRepo.deleteById(id);
+	}
+
+	@Override    //READ-buscar se no banco de dados existe produto com esse código
+	public Produto listarPeloId(Integer id) {
+		// TODO Auto-generated method stub
+		//caso não seja encontrado produto com esse ID, ele retorna null
+		return produtoRepo.findById(id).orElse(null);
 	}
 	
 }
