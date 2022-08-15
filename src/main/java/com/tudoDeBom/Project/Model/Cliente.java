@@ -27,25 +27,26 @@ import javax.persistence.Table;
 @Table(name = "cliente")
 public class Cliente {
 	
+	@Column(name="id_cliente")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idCliente;
 	
-	@Column(name="nome_cliente", nullable=false)
+	@Column(name="nome_cliente", length=70,nullable=false)
 	private String nomeCliente;
 	
-	@Column(name="telefone", nullable=false)
+	@Column(name="telefone", length=15, nullable=false)
 	private String telefone;
 	
-	@Column(name="email", nullable=false)
+	@Column(name="email", length=50 ,nullable=false)
 	private String email;
 	
-	@Column(name="cpf", nullable=false, unique=true)
+	@Column(name="cpf", length=14, nullable=false, unique=true)
 	private String cpf;
 	
-	//private String endereco;   <- verificar se essas infos sao realmente necessarias
-	//private String dataNasc;
-
+	@Column(name="endereco", length=100)
+	private String endereco;   //<- verificar se essas infos sao realmente necessarias
+	
 	public Cliente() {
 		super();
 	}

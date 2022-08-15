@@ -5,7 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /** 
  * A classe <b>Produto<b> é responsável por armazenar as 
@@ -31,25 +36,32 @@ import javax.persistence.Table;
 @Table(name = "produto")
 public class Produto {
 	
+	@Column(name="id_produto")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProduto;
 	
-	@Column(name="nome_produto", nullable=false)
+	@Column(name="nome_produto", length=30, nullable=false)
 	private String nomeProduto;
 	
 	@Column(name="preco", nullable=false)
 	private double preco;
 	
-	@Column(name="flag_remedio", nullable=false)
+	@Column(name="flag_remedio", length=1, nullable=false)
 	private char flagRemedio;
 	
-	@Column(name="flag_generico", nullable=false)
+	@Column(name="flag_generico", length=1, nullable=false)
 	private char flagGenerico;
 	
 	@Column(name="estoque", nullable=false)
 	private int estoque;
 	
+	//Relacionamento muitos para um - um itemPedido pode conter vários produtos 
+	//@ManyToOne
+	//@JoinColumn(name="id_item_pedido")
+	//@JsonIgnoreProperties("produto")
+	//private ItemPedido itemPedido;
+
 	public Produto(int idProduto, String nomeProduto, double preco, char flagRemedio, char flagGenerico, int estoque) {
 		super();
 		this.idProduto = idProduto;
@@ -59,50 +71,70 @@ public class Produto {
 		this.flagGenerico = flagGenerico;
 		this.estoque = estoque;
 	}
-	
+
+	public Produto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getIdProduto() {
 		return idProduto;
 	}
+
 	public void setIdProduto(int idProduto) {
 		this.idProduto = idProduto;
 	}
+
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
+
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
 	}
+
 	public double getPreco() {
 		return preco;
 	}
+
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+
 	public char getFlagRemedio() {
 		return flagRemedio;
 	}
+
 	public void setFlagRemedio(char flagRemedio) {
 		this.flagRemedio = flagRemedio;
 	}
+
 	public char getFlagGenerico() {
 		return flagGenerico;
 	}
+
 	public void setFlagGenerico(char flagGenerico) {
 		this.flagGenerico = flagGenerico;
 	}
+
 	public int getEstoque() {
 		return estoque;
 	}
+
 	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
+
 	
+
+	
+
 	@Override
 	public String toString() {
 		return "Produto [idProduto=" + idProduto + ", nomeProduto=" + nomeProduto + ", preco=" + preco
-				+ ", flagRemedio=" + flagRemedio + ", flagGenerico=" + flagGenerico + ", estoque=" + estoque + "]";
+				+ ", flagRemedio=" + flagRemedio + ", flagGenerico=" + flagGenerico + ", estoque=" + estoque;
 	}
-
+	
 	}
 	
 

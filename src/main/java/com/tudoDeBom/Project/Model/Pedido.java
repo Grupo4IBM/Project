@@ -1,11 +1,19 @@
 package com.tudoDeBom.Project.Model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /** 
  * A classe <b>Pedido<b> é responsável por armazenar as 
@@ -29,14 +37,15 @@ import javax.persistence.Table;
 @Table(name="pedido")
 public class Pedido {
 	
+	@Column(name="numero_pedido")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int numeroPedido;
 	
-	@Column(name="status", nullable=false)
+	@Column(name="status", length=25,nullable=false)
 	private String status;
 	
-	@Column(name="data", nullable=false)
+	@Column(name="data", length=10,nullable=false)
 	private String data;
 	
 	@Column(name="valor_bruto", nullable=false)
@@ -47,11 +56,24 @@ public class Pedido {
 	
 	@Column(name="desconto", nullable=false)
 	private double desconto;
-		
-	private Cliente cliente; 
 	
+	//Relacionamento muitos para um - um cliente pode ter vários pedidos
+	@ManyToOne
+	@JoinColumn(name="id_cliente", referencedColumnName="id_cliente")
+	private Cliente cliente;
+	
+	//Relacionamento um para muitos - um pedido pode conter vários itens
+	@OneToMany(mappedBy="pedido", cascade=CascadeType.ALL)//todas as alterações feitas a pedido repercutem em seus itens
+	@JsonIgnoreProperties("pedido")
+	private List<ItemPedido> itens;
+
+	public Pedido() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Pedido(int numeroPedido, String status, String data, double valorBruto, double valorLiquido, double desconto,
-			Cliente cliente) {
+			Cliente cliente, List<ItemPedido> itens) {
 		super();
 		this.numeroPedido = numeroPedido;
 		this.status = status;
@@ -60,6 +82,7 @@ public class Pedido {
 		this.valorLiquido = valorLiquido;
 		this.desconto = desconto;
 		this.cliente = cliente;
+		this.itens = itens;
 	}
 
 	public int getNumeroPedido() {
@@ -118,10 +141,19 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
+	public List<ItemPedido> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<ItemPedido> itens) {
+		this.itens = itens;
+	}
+
 	@Override
 	public String toString() {
 		return "Pedido [numeroPedido=" + numeroPedido + ", status=" + status + ", data=" + data + ", valorBruto="
 				+ valorBruto + ", valorLiquido=" + valorLiquido + ", desconto=" + desconto + ", cliente=" + cliente
-				+ "]";
+				+ ", itens=" + itens + "]";
 	}
+	
 }

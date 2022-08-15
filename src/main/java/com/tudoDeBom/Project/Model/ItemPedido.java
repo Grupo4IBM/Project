@@ -1,15 +1,23 @@
 package com.tudoDeBom.Project.Model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /** 
  * A classe <b>ItemPedido<b> é responsável por armazenar as 
- * informações referentes aos produtos contidos na Entidade Pedido.
+ * informações referentes aos produtoss contidos na Entidade Pedido.
  * Ela se relaciona com a classe <b>Produtos<b> (relacionamento 1,1).
  *  
  * @Author Paulo Henrique de Souza Ribeiro
@@ -23,9 +31,10 @@ import javax.persistence.Table;
  * */
 
 @Entity
-@Table(name="item_pedido")
+@Table(name="itemPedido")
 public class ItemPedido {
 	
+	@Column(name="id_item_pedido")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idItemPedido;
@@ -39,17 +48,30 @@ public class ItemPedido {
 	@Column(name="preco_final", nullable=false)
 	private double precoFinal;
 	
+	@ManyToOne
+	@JoinColumn(name="numero_pedido")
+	@JsonIgnoreProperties("item_pedido")
+	private Pedido pedido;
+	
+	@ManyToOne
+	@JoinColumn(name="id_produto")
+	@JsonIgnoreProperties("itemPedido")
+	private Produto produto;
+	
 	public ItemPedido() {
 		super();
 		
 	}
 
-	public ItemPedido(int idItemPedido, int quantidade, double precoUnitario, double precoFinal) {
+	public ItemPedido(int idItemPedido, int quantidade, double precoUnitario, double precoFinal, Pedido pedido,
+			Produto produto) {
 		super();
 		this.idItemPedido = idItemPedido;
 		this.quantidade = quantidade;
 		this.precoUnitario = precoUnitario;
 		this.precoFinal = precoFinal;
+		this.pedido = pedido;
+		this.produto = produto;
 	}
 
 	public int getIdItemPedido() {
@@ -84,12 +106,26 @@ public class ItemPedido {
 		this.precoFinal = precoFinal;
 	}
 
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
 	@Override
 	public String toString() {
 		return "ItemPedido [idItemPedido=" + idItemPedido + ", quantidade=" + quantidade + ", precoUnitario="
-				+ precoUnitario + ", precoFinal=" + precoFinal + "]";
+				+ precoUnitario + ", precoFinal=" + precoFinal + ", pedido=" + pedido + ", produto=" + produto + "]";
 	}
-	
-	
-	
+
 }
