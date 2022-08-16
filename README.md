@@ -17,7 +17,7 @@
     
 
 <h2>:pill: Sobre a Tudo de Bom:</h2>
-<h4> A Tudo de Bom é uma farmácia que não comercializa apenas medicamentos, mas também produtos para higiene e cuidados pessoais, bem como outros tipos de produtos. A loja pretende ter sua própria plataforma de gestão, e precisa de uma API para gerenciar seu estoque e seu banco de cadastro de clientes. A empresa deseja poder realizar as seguintes ações em sua plataforma:
+<h4> A Tudo de Bom é uma farmácia que não comercializa apenas medicamentos, mas também produtos para higiene e cuidados pessoais, bem como outros tipos de produtos. A loja pretende adquirir sua própria plataforma de gestão, e precisa de uma API para gerenciar seu estoque e seu banco de dados de clientes. A empresa deseja poder realizar as seguintes ações em sua plataforma:
     
 <br>
 <br>
@@ -85,7 +85,6 @@ O pacote service tem classes e interfaces. As interfaces possuem a declaração 
 * PedidoServiceInterface.java
 * ProdutoService.java
 * ProdutoServiceInterface.java
-* ItemPedidoServiceInterface.java
     
 </h4>
 
