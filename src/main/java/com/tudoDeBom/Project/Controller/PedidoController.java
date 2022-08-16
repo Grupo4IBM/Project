@@ -34,10 +34,10 @@ public class PedidoController {
 	private ArrayList<Pedido> listar(){
 		return service.listar();
 	}
-/*
+
 	@PostMapping("/pedidos")
 	public ResponseEntity<Pedido> inserirNovo(@RequestBody Pedido novo) {
 		return ResponseEntity.ok(service.inserirNovo(novo));
 	}
-	*/
+	
 }

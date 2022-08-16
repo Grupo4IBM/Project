@@ -20,7 +20,7 @@ public class PedidoService implements PedidoServiceInterface {
 
 	@Autowired
 	private PedidoRepository pedidoRepo;
-	/*
+	
 	ItemPedido itens;  
 	@Override
 	public Pedido inserirNovo(Pedido novo) {
@@ -30,7 +30,7 @@ public class PedidoService implements PedidoServiceInterface {
 	}
 	return pedidoRepo.save(novo);
 	}
-	*/
+	
 	@Override
 	public Pedido recuperarPeloNumero(Integer numero) {
 		return pedidoRepo.findById(numero).orElse(null);

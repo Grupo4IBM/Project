@@ -11,7 +11,7 @@ import com.tudoDeBom.Project.Model.Pedido;
 
 public interface PedidoServiceInterface {
 	
-	//public Pedido inserirNovo(Pedido novo);
+	public Pedido inserirNovo(Pedido novo);
 	public Pedido recuperarPeloNumero(Integer numero);
 	public ArrayList<Pedido> listar();
 	
