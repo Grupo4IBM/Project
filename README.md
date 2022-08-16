@@ -14,11 +14,14 @@
 </p>
 
 <p align="center"> Plataforma para controle de estoque e gerenciamento de cadastro de clientes e transações de vendas. </p>
-
+    
 
 <h2>:pill: Sobre a Tudo de Bom:</h2>
 <h4> A Tudo de Bom é uma farmácia que não comercializa apenas medicamentos, mas também produtos para higiene e cuidados pessoais, bem como outros tipos de produtos. A loja pretende ter sua própria plataforma de gestão, e precisa de uma API para gerenciar seu estoque e seu banco de cadastro de clientes. A empresa deseja poder realizar as seguintes ações em sua plataforma:
     
+<br>
+<br>
+ 
 * Cadastrar, Listar, Atualizar e Excluir de dados de clientes;
 * Acessar o histório das transações de vendas;  
 * Controlar o estoque, adicionando e removendo produtos;  
@@ -37,22 +40,52 @@
 <h4> 
 
 Em ...\src\main\java\com\tudoDeBom\Project encontramos os pacotes criados para desenvolvimento da API, nestes pacotes teremos Classes e Interfaces que mais adiante veremos como funcionam e para que servem. Entendendo melhor os pacotes então, temos:
-  
-   * com.tudoDeBom.Project - Este é um pacote que contém a classe ProjectApplication.java que realiza a inicialização da aplicação do Spring Boot;
     
-   * com.tudoDeBom.Project.Controller - Contém a classes *Controller.java. Que possuem métodos CRUD e suas respectivas anotações JPA, que tornam possível a comunicação entre a API e o Banco de Dados MySql. As classes Controller são:
-        * ClienteController.java: 
-        * ProdutoController.java: 
-        * PedidoController.java: 
-       
-   * com.tudoDeBom.Project.Repository - 
-   * com.tudoDeBom.Project.Service - 
-   
+<br> 
+    :package: com.tudoDeBom.Project
     
+Este é um pacote que contém a classe ProjectApplication.java que realiza a inicialização da aplicação do Spring Boot;
     
-Interfaces
-Classes
+<br>    
+    :package: com.tudoDeBom.Project.Controller
     
+Contém a classes que possuem métodos CRUD e suas respectivas anotações JPA, que tornam possível a comunicação entre a API e o Banco de Dados MySql. As classes são:
+    
+* ClienteController.java; 
+* ProdutoController.java; 
+* PedidoController.java. 
+    
+<br>
+    :package: com.tudoDeBom.Project.Model
+    
+Aqui, temos classes que contém a declaração de seus atributos e seus respectivos getters, setters e a estrutura `toSting()`. Essas classes são:
+    
+* Cliente.java;
+* Pedido.java;
+* ItemPedido.java;
+* Produto.java.
+    
+ <br>    
+    :package: com.tudoDeBom.Project.Repository
+    
+Este pacote contém interfaces herdeiras da interface JPARepository, que possui uma variedade de métodos como `save()`,  `delete()` e `findAll()`, por exemplo. Essa relação é útil para a injeção de dependência. As interfaces contidas neste pacote são:
+    
+* ClienteRpository;
+* ProdutoRepository;
+* PedidoRepository;
+    
+<br>    
+    :package: com.tudoDeBom.Project.Service 
+    
+O pacote service tem classes e interfaces. As interfaces possuem a declaração de métodos, como por exemplo `listar()`, `listarPeloNome()`, `editar()`, entre outros, enquanto as classes correspondentes implementam estas interfaces e descrevem as ações dos métodos. As classes e interfaces são:
+
+* ClienteService.java
+* ClienteServiceInterface.java
+* PedidoService.java
+* PedidoServiceInterface.java
+* ProdutoService.java
+* ProdutoServiceInterface.java
+* ItemPedidoServiceInterface.java
     
 </h4>
 
