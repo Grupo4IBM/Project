@@ -21,6 +21,11 @@ import javax.persistence.Table;
  * @Since 13/08/2022
  * @Version 1.0.1
  * Descrição: Criação do construtor Cliente().
+ * 
+ * @Author Paulo Henrique de Souza Ribeiro
+ * @Since 15/08/2022
+ * @Version 1.0.2
+ * @Descricao: Correção de getter, setter e toString do atributo endereco
  * */
 
 @Entity
@@ -44,21 +49,24 @@ public class Cliente {
 	@Column(name="cpf", length=14, nullable=false, unique=true)
 	private String cpf;
 	
-	@Column(name="endereco", length=100)
+	@Column(name="endereco", length=100, nullable=false)
 	private String endereco;   //<- verificar se essas infos sao realmente necessarias
 	
 	public Cliente() {
 		super();
 	}
 	
-	public Cliente(int idCliente, String nomeCliente, String telefone, String email, String cpf) {
+
+	public Cliente(int idCliente, String nomeCliente, String telefone, String email, String cpf, String endereco) {
 		super();
 		this.idCliente = idCliente;
 		this.nomeCliente = nomeCliente;
 		this.telefone = telefone;
 		this.email = email;
 		this.cpf = cpf;
+		this.endereco = endereco;
 	}
+
 
 	public int getIdCliente() {
 		return idCliente;
@@ -100,10 +108,20 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
 	@Override
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", nomeCliente=" + nomeCliente + ", telefone=" + telefone
-				+ ", email=" + email + ", cpf=" + cpf + "]";
+				+ ", email=" + email + ", cpf=" + cpf + ", endereco=" + endereco + "]";
 	}
+
+
 	
 }
