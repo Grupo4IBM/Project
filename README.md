@@ -2,8 +2,9 @@
 <h3 align="center">
     Desafio 01 - Programa If Black Then Code - Gama Academy & IBM
 </h3>
-
-
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+</p>
 <h2 align= "center" >
     API - Loja Tudo De Bom 
 </h2>
@@ -15,7 +16,7 @@
 <p align="center"> Plataforma para controle de estoque e gerenciamento de cadastro de clientes e transações de vendas. </p>
 
 
-<h3>:pill: Sobre a Tudo de Bom:</h3>
+<h2>:pill: Sobre a Tudo de Bom:</h2>
 <h4> A Tudo de Bom é uma farmácia que não comercializa apenas medicamentos, mas também produtos para higiene e cuidados pessoais, bem como outros tipos de produtos. A loja pretende ter sua própria plataforma de gestão, e precisa de uma API para gerenciar seu estoque e seu banco de cadastro de clientes. A empresa deseja poder realizar as seguintes ações em sua plataforma:
     
 * Cadastrar, Listar, Atualizar e Excluir de dados de clientes;
@@ -24,17 +25,39 @@
 * Automatizar a aplicação de descontos em medicamentos genéricos.   
 </h4>
 
-<h3>:clipboard: Pré-Requisitos para utilização da API</h3>
+<h2>:clipboard: Pré-Requisitos para utilização da API</h2>
 <h4>Descrever quais softwares precisam ser instalados prar rodar a API:</h4>
 
 
-<h3>:wrench: Instalações Necessárias</h3>
+<h2>:wrench: Instalações Necessárias</h2>
 <h4>Passo a passo de instalação dos pré requisitos:</h4>
 
-<h3>⚙️ Executando os testes</h3>
-<h4>Detalhamento e imagens de teste realizado</h4>
 
-<h3>🛠️ Desenvolvimento... </h3>
+<h2>🛠️ Desenvolvimento </h2>
+<h4> 
+
+Em ...\src\main\java\com\tudoDeBom\Project encontramos os pacotes criados para desenvolvimento da API, nestes pacotes teremos Classes e Interfaces que mais adiante veremos como funcionam e para que servem. Entendendo melhor os pacotes então, temos:
+  
+   * com.tudoDeBom.Project - Este é um pacote que contém a classe ProjectApplication.java que realiza a inicialização da aplicação do Spring Boot;
+    
+   * com.tudoDeBom.Project.Controller - Contém a classes *Controller.java. Que possuem métodos CRUD e suas respectivas anotações JPA, que tornam possível a comunicação entre a API e o Banco de Dados MySql. As classes Controller são:
+        * ClienteController.java: 
+        * ProdutoController.java: 
+        * PedidoController.java: 
+       
+   * com.tudoDeBom.Project.Repository - 
+   * com.tudoDeBom.Project.Service - 
+   
+    
+    
+Interfaces
+Classes
+    
+    
+</h4>
+
+
+<h2>⚙️ Executando os testes</h2>
 <h4>Detalhamento e imagens de teste realizado</h4>
 
 <br>
@@ -114,7 +137,7 @@
    
   
     
-  <h3>🎁 Agradecimentos </h3>
+  <h2>🎁 Agradecimentos </h2>
   <h4>Agradecemos à IBM pela oportunidade de participarmos desta bela iniciativa que é o programa de treinamento If Black, Then Code, voltado para estudantes pretos(as) e pardos(as), que proporciona a ampliação de conhecimentos e de qualificação na área de desenvolvimento Back End e DevOps (Java).
       Agradeçemos também à Gama Academy e seus Yellow Belts pelo apoio e atenção nestas primeiras 2 semanas de treinamento, e aos professores Isidro em suas espetaculares aulas assíncronas e Ricardo Alexandre Bontempo em suas suuuuper monitorias.
   <h4>
