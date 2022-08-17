@@ -90,7 +90,14 @@ O pacote service tem classes e interfaces. As interfaces possuem a declaração 
 
 
 <h2>⚙️ Executando os testes</h2>
-<h4>Detalhamento e imagens de teste realizado</h4>
+<h4> 
+    
+   * GET
+   * PUT
+   * POST
+   * DELETE
+    
+</h4>
 
 <br>
 <br>
