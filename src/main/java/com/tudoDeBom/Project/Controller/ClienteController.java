@@ -28,7 +28,7 @@ import com.tudoDeBom.Project.Service.ClienteServiceInterface;
  * @Version 1.0.1 implementação de get, put, post e delete
  */
 
-@Controller
+@RestController
 public class ClienteController {
 
 				//Autowired: INJEÇÃO DE DEPENDÊNCIAS 
@@ -50,7 +50,6 @@ public class ClienteController {
 	   return service.listar();
    }
    
-
    /**
 	 * Método POST utilizado para criar registros (Create). 
 	 * @param novo
