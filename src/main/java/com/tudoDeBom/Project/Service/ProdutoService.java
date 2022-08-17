@@ -7,8 +7,6 @@ package com.tudoDeBom.Project.Service;
  * */
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +27,7 @@ public class ProdutoService implements ProdutoServiceInterface {
 	}
 
 	@Override      //CREATE-Registra um novo produto
-	public Produto novo(Produto novo) {
+	public Produto novoProduto(Produto novo) {
 		// TODO Auto-generated method stub
 		return produtoRepo.save(novo);
 	}

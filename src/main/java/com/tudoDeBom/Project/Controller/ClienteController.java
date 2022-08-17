@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,6 @@ import com.tudoDeBom.Project.Repository.ClienteRepository;
 import com.tudoDeBom.Project.Service.ClienteServiceInterface;
 
 /**
- * 
  * @Author Paulo Henrique de Souza Ribeiro
  * @Since 15/08/2022
  * @Version 1.0.0
@@ -28,7 +28,7 @@ import com.tudoDeBom.Project.Service.ClienteServiceInterface;
  * @Version 1.0.1 implementação de get, put, post e delete
  */
 
-@RestController
+@Controller
 public class ClienteController {
 
 				//Autowired: INJEÇÃO DE DEPENDÊNCIAS 
@@ -39,13 +39,24 @@ public class ClienteController {
    @Autowired
    private ClienteRepository clienteRepo;
    
-   //READ-Lista todos os produtos registrados no banco de dados
+   
+   /**
+	 * Método GET utilizado para recuperar dados (Read).
+	 * @return  retorna o valor de todos campos listados.
+	 * 
+	 */   
    @GetMapping("/clientes")
    private ArrayList<Cliente> listar(){
 	   return service.listar();
    }
    
-   //CREATE - Cadastrar cliente no banco de dados
+
+   /**
+	 * Método POST utilizado para criar registros (Create). 
+	 * @param novo
+	 * @return Se o envio for bem sucedido ele retorna ok,
+	 * caso contrário ele retorna uma mensagem de erro.
+	 */
    @PostMapping("/clientes") //ResponseEntity retorna uma resposta HTTP, que pode conter algum código ou mensagem
    public ResponseEntity<Cliente> novo(@RequestBody Cliente novo){
 	   Cliente cliente = service.novo(novo);
@@ -55,7 +66,12 @@ public class ClienteController {
 	   return ResponseEntity.badRequest().build();
    }
    
-   //UPDATE - Atualizar dados de produto existente
+   /**
+	 * Método PUT utilizado para atualizar dados (Update).
+	 * @param dados
+	 * @return Se (cliente) nao for null, atualiza os dados e retorna a atualizacao,
+	 * Se (cliente) for null, retorna mensagem de erro.
+	 */
    @PutMapping("/clientes")
    public ResponseEntity<Cliente> editar(@RequestBody Cliente dados){
 	   Cliente cliente = service.editar(dados);
@@ -65,14 +81,22 @@ public class ClienteController {
 	   return ResponseEntity.badRequest().build();
    }
    
-   //DELETE - excluir produto da base de dados
+   /**
+ 	 * Método DELETE utilizado para excluir dados.
+ 	 * @param id
+ 	 * @return retorna valor vazio, caso tenha um id valido.
+ 	 */
  	@DeleteMapping("/clientes/{id}")
  	public ResponseEntity<Cliente> excluir(@PathVariable Integer id){
  		service.excluir(id);
  		return ResponseEntity.ok(null);
  	}
  	
- 	//READ - buscar por ID
+ 	/**
+	 * Método GET utilizado para listar campos através do id.
+	 * @param id
+	 * @return Caso True retorna (cliente), caso False retorna notFound.
+	 */
 	@GetMapping("/clientes/{id}")
 	public ResponseEntity<Cliente> listarPeloId(@PathVariable Integer id){
 		Cliente cliente = service.listarPeloId(id);
@@ -82,7 +106,12 @@ public class ClienteController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	//READ - buscar por NOME
+	/**
+	 * Método GET utilizado para listar campos através do nome do cliente.
+	 * @param nomeCliente
+	 * @return retorna (nomeCliente)
+	 *  
+	 */
 	@GetMapping("/clientes/busca")
 	public ArrayList<Cliente> listarPeloNome(@RequestParam(name="palavra") String nomeCliente){
 		return service.listarPeloNome(nomeCliente);		

@@ -32,6 +32,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * Descrição: Implementação das anotações JPA.
  * */
 
+/**
+ * Anotacoes JPA para mapeamento de entidade/relacionamento no database.
+ * Inclusao de getters e setters
+ * 
+ */
+
 @Entity
 @Table(name = "produto")
 public class Produto {
@@ -39,49 +45,28 @@ public class Produto {
 	@Column(name="id_produto")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idProduto;
+	private Integer idProduto;
 	
-	@Column(name="nome_produto", length=30, nullable=false)
+	@Column(name="nome_produto", length=45, nullable=false)
 	private String nomeProduto;
 	
-	@Column(name="preco", nullable=false)
-	private double preco;
+	@Column(name="preco")
+	private Double preco;
 	
-	@Column(name="flag_remedio", length=1, nullable=false)
-	private char flagRemedio;
+	@Column(name="flag_remedio", length=1)
+	private String flagRemedio;
 	
-	@Column(name="flag_generico", length=1, nullable=false)
-	private char flagGenerico;
+	@Column(name="flag_generico", length=1)
+	private String flagGenerico;
 	
-	@Column(name="estoque", nullable=false)
-	private int estoque;
-	
-	//Relacionamento muitos para um - um itemPedido pode conter vários produtos 
-	//@ManyToOne
-	//@JoinColumn(name="id_item_pedido")
-	//@JsonIgnoreProperties("produto")
-	//private ItemPedido itemPedido;
+	@Column(name="estoque")
+	private Integer estoque;
 
-	public Produto(int idProduto, String nomeProduto, double preco, char flagRemedio, char flagGenerico, int estoque) {
-		super();
-		this.idProduto = idProduto;
-		this.nomeProduto = nomeProduto;
-		this.preco = preco;
-		this.flagRemedio = flagRemedio;
-		this.flagGenerico = flagGenerico;
-		this.estoque = estoque;
-	}
-
-	public Produto() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public int getIdProduto() {
+	public Integer getIdProduto() {
 		return idProduto;
 	}
 
-	public void setIdProduto(int idProduto) {
+	public void setIdProduto(Integer idProduto) {
 		this.idProduto = idProduto;
 	}
 
@@ -93,48 +78,37 @@ public class Produto {
 		this.nomeProduto = nomeProduto;
 	}
 
-	public double getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 
-	public char getFlagRemedio() {
+	public String getFlagRemedio() {
 		return flagRemedio;
 	}
 
-	public void setFlagRemedio(char flagRemedio) {
+	public void setFlagRemedio(String flagRemedio) {
 		this.flagRemedio = flagRemedio;
 	}
 
-	public char getFlagGenerico() {
+	public String getFlagGenerico() {
 		return flagGenerico;
 	}
 
-	public void setFlagGenerico(char flagGenerico) {
+	public void setFlagGenerico(String flagGenerico) {
 		this.flagGenerico = flagGenerico;
 	}
 
-	public int getEstoque() {
+	public Integer getEstoque() {
 		return estoque;
 	}
 
-	public void setEstoque(int estoque) {
+	public void setEstoque(Integer estoque) {
 		this.estoque = estoque;
 	}
+}
 
-	
-
-	
-
-	@Override
-	public String toString() {
-		return "Produto [idProduto=" + idProduto + ", nomeProduto=" + nomeProduto + ", preco=" + preco
-				+ ", flagRemedio=" + flagRemedio + ", flagGenerico=" + flagGenerico + ", estoque=" + estoque;
-	}
-	
-	}
-	
 

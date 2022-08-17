@@ -18,6 +18,10 @@ import com.tudoDeBom.Project.Repository.ClienteRepository;
 @Service
 public class ClienteService implements ClienteServiceInterface {
 	
+	/**
+	 * Classe ClienteService implementa a ClienteServiceInterface
+	 */
+	
 	@Autowired
 	private ClienteRepository clienteRepo;
 

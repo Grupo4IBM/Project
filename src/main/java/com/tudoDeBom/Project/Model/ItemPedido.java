@@ -2,6 +2,7 @@ package com.tudoDeBom.Project.Model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,6 +31,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * Implementacao das anotacoes JPA.
  * */
 
+/**
+ * Anotacoes JPA para mapeamento de entidade/relacionamento no database.
+ * Inclusao de getters e setters
+ * 
+ */
+
 @Entity
 @Table(name="itemPedido")
 public class ItemPedido {
@@ -37,56 +44,39 @@ public class ItemPedido {
 	@Column(name="id_item_pedido")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idItemPedido;
+	private Integer idItemPedido;
 	
-	@Column(name="quantidade", nullable=false)
-	private int quantidade;
+	@Column(name="quantidade")
+	private Integer quantidade;
 	
-	@Column(name="preco_unitario", nullable=false)
+	@Column(name="preco_unitario")
 	private double precoUnitario;
 	
-	@Column(name="preco_final", nullable=false)
+	@Column(name="preco_final")
 	private double precoFinal;
 	
 	@ManyToOne
 	@JoinColumn(name="numero_pedido")
-	@JsonIgnoreProperties("item_pedido")
+	@JsonIgnoreProperties("itens")
 	private Pedido pedido;
 	
 	@ManyToOne
 	@JoinColumn(name="id_produto")
-	@JsonIgnoreProperties("itemPedido")
 	private Produto produto;
 	
-	public ItemPedido() {
-		super();
-		
-	}
-
-	public ItemPedido(int idItemPedido, int quantidade, double precoUnitario, double precoFinal, Pedido pedido,
-			Produto produto) {
-		super();
-		this.idItemPedido = idItemPedido;
-		this.quantidade = quantidade;
-		this.precoUnitario = precoUnitario;
-		this.precoFinal = precoFinal;
-		this.pedido = pedido;
-		this.produto = produto;
-	}
-
-	public int getIdItemPedido() {
+	public Integer getIdItemPedido() {
 		return idItemPedido;
 	}
 
-	public void setIdItemPedido(int idItemPedido) {
+	public void setIdItemPedido(Integer idItemPedido) {
 		this.idItemPedido = idItemPedido;
 	}
 
-	public int getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -122,10 +112,6 @@ public class ItemPedido {
 		this.produto = produto;
 	}
 
-	@Override
-	public String toString() {
-		return "ItemPedido [idItemPedido=" + idItemPedido + ", quantidade=" + quantidade + ", precoUnitario="
-				+ precoUnitario + ", precoFinal=" + precoFinal + ", pedido=" + pedido + ", produto=" + produto + "]";
-	}
+	
 
 }

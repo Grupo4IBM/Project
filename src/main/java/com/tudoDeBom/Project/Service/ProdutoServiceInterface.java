@@ -7,25 +7,43 @@ package com.tudoDeBom.Project.Service;
  * */
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 import com.tudoDeBom.Project.Model.Produto;
 
 public interface ProdutoServiceInterface {
 
-	//listar todos os produtos cadastrados
+	/**
+	 * Cabecalho do metodo listar para listar todos os produtos
+	 * @param ArrayList de Produto
+	 ** @return Lista de todos os produtos
+	 */
 	public ArrayList<Produto> listar();
 	
-	//buscar pelo id
+	/**
+	 * Cabecalho do metodo listarPeloId para listar produtos por ID
+	 * @param id
+	 * @return lista de produtos com o id informado no parametro
+	 */
 	public Produto listarPeloId(Integer id);
 	
-	//cadastrar novo produto
-	public Produto novo(Produto novo);
+	/**
+	 * Cabecalho do metodo para cadastrar novo produto
+	 * @param novo
+	 * @return novo cadastro ok
+	 */
+	public Produto novoProduto(Produto novo);
 	
-	//atualizar produto
+	/**
+	 * Cabecalho do metodo para atualizar dados existentes
+	 * @param atualizado
+	 * @return cadastro atualizado ou mensagem de erro caso dados sejam invalidos
+	 */
 	public Produto editar(Produto atualizado);
 	
-	//excluir produto
+	/**
+	 * Cabecalho para excluir dados atraves do id
+	 * @param id
+	 * @return vazio caso id seja valido
+	 */
 	public void excluir(Integer id);
 }

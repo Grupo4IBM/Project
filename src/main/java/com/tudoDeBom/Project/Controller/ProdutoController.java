@@ -27,13 +27,10 @@ import com.tudoDeBom.Project.Service.ProdutoServiceInterface;
 @RestController
 public class ProdutoController {
 
-	             //Autowired: INJEÇÃO DE DEPENDÊNCIAS 
-	@Autowired   //não é necessário importar a CLASSE ProdutoService  
-				//para utilizar os métodos que ela implementou
+	                //Autowired: INJEÇÃO DE DEPENDÊNCIAS 
+	                //não é necessário importar a CLASSE ProdutoService  
+	@Autowired  	//para utilizar os métodos que ela implementou
 	private ProdutoServiceInterface service;
-	
-	@Autowired
-	private ProdutoRepository produtoRepo;
 	
 	//READ-lista todos os produtos registrados no banco de dados
 	@GetMapping("/produtos")
@@ -43,8 +40,8 @@ public class ProdutoController {
 	
 	//CREATE-cadastrar produto no banco de dados
 	@PostMapping("/produtos")   //ResponseEntity retorna uma resposta HTTP, que pode conter algum código ou mensagem
-	public ResponseEntity<Produto> novo(@RequestBody Produto novo){
-		Produto produto = service.novo(novo);   
+	public ResponseEntity<Produto> cadastrar(@RequestBody Produto novo){
+		Produto produto = service.novoProduto(novo);   
 		if (produto != null) {
 			return ResponseEntity.ok(produto);
 		}

@@ -18,21 +18,45 @@ import com.tudoDeBom.Project.Model.Cliente;
 
 public interface ClienteServiceInterface {
 	
-	//listar todos os clientes cadastrados
+	/**
+	 * Cabecalho do metodo listar para listar todos os clientes
+	 * @param ArrayList de Cliente
+	 ** @return Lista de todos os clientes
+	 */
 	public ArrayList<Cliente> listar();
 	
-	//buscar pelo nome
+	/**
+	 * Cabecalho do metodo listarPeloNome para listar clientes por nome
+	 * @param nomeCliente
+	 * @return lista de clientes com o nome informado no parametro
+	 */
 	public ArrayList<Cliente> listarPeloNome(String nomeCliente);
 	
-	//buscar pelo ID
+	/**
+	 * Cabecalho do metodo listarPeloId para listar clientes por ID
+	 * @param id
+	 * @return lista de clientes com o id informado no parametro
+	 */
 	public Cliente listarPeloId(Integer id);
 	
-	//cadastrar novo cliente
+	/**
+	 * Cabecalho do metodo para cadastrar novo cliente
+	 * @param novo
+	 * @return novo cadastro ok
+	 */
 	public Cliente novo (Cliente novo);
 	
-	//atualizar cliente
+	/**
+	 * Cabecalho do metodo para atualizar dados existentes
+	 * @param atualizado
+	 * @return cadastro atualizado ou mensagem de erro caso dados sejam invalidos
+	 */
 	public Cliente editar(Cliente atualizado);
 	
-	//excluir cliente
+	/**
+	 * Cabecalho para excluir dados atraves do id
+	 * @param id
+	 * @return vazio caso id seja valido
+	 */
 	public void excluir(Integer id);
 }

@@ -14,12 +14,16 @@ import com.tudoDeBom.Project.Model.Cliente;
  * @Author Paulo Henrique de Souza Ribeiro
  * @Version 1.0.1
  * @Since 15/08/2022
- * @Descricao: Implementacao de metodo para busca de cliente por nome
+ * @Descricao: Implementacao de metodo findBynomeClienteContaining para busca de cliente por nome
  * */
+
+/**
+ * 
+ * Interface Repository para invocar as bibliotecas do Repositorio JPA
+ *
+ */
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 
 	ArrayList<Cliente> findBynomeClienteContaining(String nomeCliente);
-	
-	
 	
 }

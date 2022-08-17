@@ -1,6 +1,8 @@
 package com.tudoDeBom.Project.Repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
 import com.tudoDeBom.Project.Model.Produto;
 
 /** 
@@ -8,6 +10,14 @@ import com.tudoDeBom.Project.Model.Produto;
  * @Version 1.0.0
  * @Since 13/08/2022
  * */
-public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
 
+/**
+ * 
+ * Interface Repository para invocar as bibliotecas do Repositorio CRUD
+ *
+ */
+public interface ProdutoRepository extends CrudRepository<Produto, Integer>{
+
+	@Query("SELECT p FROM Produto p WHERE p.idProduto = ?1")
+	public Produto encontrarPorId(Integer id);
 }

@@ -1,11 +1,17 @@
 package com.tudoDeBom.Project.Model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /** 
  * A classe <b>Cliente<b> é responsável por armazenar as informações 
@@ -28,6 +34,11 @@ import javax.persistence.Table;
  * @Descricao: Correção de getter, setter e toString do atributo endereco
  * */
 
+/**
+ * Anotacoes JPA para mapeamento de entidade/relacionamento no database.
+ * Inclusao de getters e setters
+ */  
+
 @Entity
 @Table(name = "cliente")
 public class Cliente {
@@ -49,24 +60,9 @@ public class Cliente {
 	@Column(name="cpf", length=14, nullable=false, unique=true)
 	private String cpf;
 	
-	@Column(name="endereco", length=100, nullable=false)
-	private String endereco;   //<- verificar se essas infos sao realmente necessarias
-	
-	public Cliente() {
-		super();
-	}
-	
-
-	public Cliente(int idCliente, String nomeCliente, String telefone, String email, String cpf, String endereco) {
-		super();
-		this.idCliente = idCliente;
-		this.nomeCliente = nomeCliente;
-		this.telefone = telefone;
-		this.email = email;
-		this.cpf = cpf;
-		this.endereco = endereco;
-	}
-
+	@OneToMany(mappedBy="cliente", cascade = CascadeType.ALL, orphanRemoval=false)//todas as alterações feitas a pedido repercutem em seus itens
+	@JsonIgnoreProperties("cliente")
+	private List<Pedido> pedidosCliente;
 
 	public int getIdCliente() {
 		return idCliente;
@@ -108,20 +104,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public String getEndereco() {
-		return endereco;
+	public List<Pedido> getPedidosCliente() {
+		return pedidosCliente;
 	}
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setPedidosCliente(List<Pedido> pedidosCliente) {
+		this.pedidosCliente = pedidosCliente;
 	}
-
-	@Override
-	public String toString() {
-		return "Cliente [idCliente=" + idCliente + ", nomeCliente=" + nomeCliente + ", telefone=" + telefone
-				+ ", email=" + email + ", cpf=" + cpf + ", endereco=" + endereco + "]";
-	}
-
-
-	
 }

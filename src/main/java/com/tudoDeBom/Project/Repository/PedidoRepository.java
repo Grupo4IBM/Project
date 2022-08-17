@@ -1,6 +1,7 @@
 package com.tudoDeBom.Project.Repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+
 import com.tudoDeBom.Project.Model.Pedido;
 
 /** 
@@ -9,6 +10,12 @@ import com.tudoDeBom.Project.Model.Pedido;
  * @Since 13/08/2022
  * */
 
-public interface PedidoRepository extends JpaRepository<Pedido, Integer>{
+/**
+ * 
+ * Interface Repository para invocar as bibliotecas do CRUD Repository
+ *
+ */
+
+public interface PedidoRepository extends CrudRepository<Pedido, Integer>{
 
 }

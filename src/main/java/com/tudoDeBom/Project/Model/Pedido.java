@@ -1,5 +1,7 @@
 package com.tudoDeBom.Project.Model;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -33,6 +35,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * Implementacao das anotacoes JPA.
  * */
 
+/**
+ * Anotacoes JPA para mapeamento de entidade/relacionamento no database.
+ * Inclusao de getters e setters
+ * 
+ */
+
+
 @Entity
 @Table(name="pedido")
 public class Pedido {
@@ -40,56 +49,38 @@ public class Pedido {
 	@Column(name="numero_pedido")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int numeroPedido;
+	private Integer numeroPedido;
 	
-	@Column(name="status", length=25,nullable=false)
+	@Column(name="status")
 	private String status;
 	
-	@Column(name="data", length=10,nullable=false)
-	private String data;
+	@Column(name="data")
+	private LocalDate data;
 	
-	@Column(name="valor_bruto", nullable=false)
+	@Column(name="valor_bruto")
 	private double valorBruto;
 	
-	@Column(name="valor_liquido", nullable=false)
+	@Column(name="valor_liquido")
 	private double valorLiquido;
 	
-	@Column(name="desconto", nullable=false)
+	@Column(name="desconto")
 	private double desconto;
 	
 	//Relacionamento muitos para um - um cliente pode ter vários pedidos
 	@ManyToOne
-	@JoinColumn(name="id_cliente", referencedColumnName="id_cliente")
+	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 	
 	//Relacionamento um para muitos - um pedido pode conter vários itens
-	@OneToMany(mappedBy="pedido", cascade=CascadeType.ALL)//todas as alterações feitas a pedido repercutem em seus itens
+	@OneToMany(mappedBy="pedido", cascade = CascadeType.ALL, orphanRemoval=true)//todas as alterações feitas a pedido repercutem em seus itens
 	@JsonIgnoreProperties("pedido")
-	private List<ItemPedido> itens;
+	private List<ItemPedido> itens = new ArrayList<>();
 
-	public Pedido() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Pedido(int numeroPedido, String status, String data, double valorBruto, double valorLiquido, double desconto,
-			Cliente cliente, List<ItemPedido> itens) {
-		super();
-		this.numeroPedido = numeroPedido;
-		this.status = status;
-		this.data = data;
-		this.valorBruto = valorBruto;
-		this.valorLiquido = valorLiquido;
-		this.desconto = desconto;
-		this.cliente = cliente;
-		this.itens = itens;
-	}
-
-	public int getNumeroPedido() {
+	public Integer getNumeroPedido() {
 		return numeroPedido;
 	}
 
-	public void setNumeroPedido(int numeroPedido) {
+	public void setNumeroPedido(Integer numeroPedido) {
 		this.numeroPedido = numeroPedido;
 	}
 
@@ -101,11 +92,11 @@ public class Pedido {
 		this.status = status;
 	}
 
-	public String getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
@@ -149,11 +140,4 @@ public class Pedido {
 		this.itens = itens;
 	}
 
-	@Override
-	public String toString() {
-		return "Pedido [numeroPedido=" + numeroPedido + ", status=" + status + ", data=" + data + ", valorBruto="
-				+ valorBruto + ", valorLiquido=" + valorLiquido + ", desconto=" + desconto + ", cliente=" + cliente
-				+ ", itens=" + itens + "]";
-	}
-	
 }
