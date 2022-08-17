@@ -10,7 +10,7 @@
 </h2>
 
 <p align="center">
-<img align="center" src="https://blog.memed.com.br/wp-content/uploads/2021/01/shutterstock_1723332388-scaled.jpg" style="width: 55%;" alt="Logo da ecous">
+<img align="center" src="https://blog.memed.com.br/wp-content/uploads/2021/01/shutterstock_1723332388-scaled.jpg" style="width: 55%;" alt="Capa">
 </p>
 
 <p align="center"> Plataforma para controle de estoque e gerenciamento de cadastro de clientes e transações de vendas. </p>
@@ -91,11 +91,87 @@ O pacote service tem classes e interfaces. As interfaces possuem a declaração 
 
 <h2>⚙️ Executando os testes</h2>
 <h4> 
+   
+   
+  
+   * GET - Listar todos os clientes
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Cliente/GET%20-%20Listar%20Todos%20Clientes.PNG" width="750" height="450"  />
+<br>
+
+   * GET - Listar clientes pelo ID
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Cliente/GET%20-%20Listar%20Cliente%20Pelo%20ID.PNG" width="750" height="450" />
+<br>
+
+   * GET - Listar clientes pelo nome
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Cliente/GET%20-%20Listar%20Cliente%20Pelo%20Nome.PNG" width="750" height="450" />
+<br>
+
+   * GET - Listar todos os pedidos
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Pedido/GET%20-%20Listar%20Todos%20os%20Pedidos.PNG" width="750" height="450" />
+<br>
+   
+   * GET - Listar pedidos pelo ID
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Pedido/GET%20-%20Listar%20Pedido%20Pelo%20ID.PNG" width="750" height="450" />
+<br>
+
+   * GET - Listar todos os produtos
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Produto/GET%20-%20Listar%20Todos%20os%20Produtos.PNG" width="750" height="450" />
+<br>
+
+   * GET - Listar produtos pelo ID
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Produto/GET%20-%20Listar%20Pelo%20ID.PNG" width="750" height="450" />
+<br>
+<br>  
+  
+   * PUT - Atualizar clientes
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Cliente/PUT%20-%20Atualizar%20Cliente.PNG" width="750" height="450" />
+<br>
+
+  * PUT - Atualizar clientes
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Cliente/PUT%20-%20Atualizar%20Cliente.PNG" width="750" height="450" />
+<br>
+ 
+  * PUT - Atualizar produtos
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Produto/PUT%20-%20Atualizar%20Produto.PNG" width="750" height="450" />
+<br>
+
+  * POST - Cadastrar clientes
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Cliente/POST%20-%20Cadastrar%20Cliente.PNG" width="750" height="450" />
+<br>
+
+  * POST - Cadastrar produtos
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Produto/POST%20-%20Cadastrar%20Produto.PNG" width="750" height="450" />
+<br>
+
+  * DELETE - Deletar cliente
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Cliente/DELETE%20-%20Deletar%20Cliente.PNG" width="750" height="450" />
+<br>
+
+  * DELETE - Deletar produto
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Produto/DELETE%20-%20Deletar%20Produto.PNG" width="750" height="450" />
+<br>
+
+  * CREATED - Criar novo pedido
+   
+   <img src="https://github.com/Grupo4IBM/Project/blob/teste/relatorios%20de%20reuniao/registros%20endpoints/End-Point%20Pedido/CREATE%20-%20Cadastrar%20Novo%20Pedido.PNG" width="750" height="450" />
+<br>
     
-   * GET
-   * PUT
-   * POST
-   * DELETE
+    
+    
     
 </h4>
 
