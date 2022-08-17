@@ -190,14 +190,8 @@ O pacote service tem classes e interfaces. As interfaces possuem a declaração 
   <tr>
    <td align="center">
    <img  src="https://s3.amazonaws.com//beta-img.b2bstack.net/uploads/production/product/product_image/25967/eclipse.png" width="80" height="80">
-   <td align="center">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg" width="90" height="110"/>
-   <td align="center">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" width="100" height="120"/>
-   <td align="center">
-   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" width="100" height="120"/>
-   <td align="center">
-   <img  src="https://iwanta.tech/wp-content/uploads/2021/05/Create-views-with-Thymeleaf.jpg" width="180" height="60"/>
+ 
+ 
  </tr>
 
 </table>
