@@ -28,14 +28,6 @@
 * Automatizar a aplicação de descontos em medicamentos genéricos.   
 </h4>
 
-<h2>:clipboard: Pré-Requisitos para utilização da API</h2>
-<h4>Descrever quais softwares precisam ser instalados prar rodar a API:</h4>
-
-
-<h2>:wrench: Instalações Necessárias</h2>
-<h4>Passo a passo de instalação dos pré requisitos:</h4>
-
-
 <h2>🛠️ Desenvolvimento </h2>
 <h4> 
 
