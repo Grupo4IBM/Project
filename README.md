@@ -31,6 +31,12 @@
 <h2>🛠️ Desenvolvimento </h2>
 <h4> 
 
+* Estrutura do banco de dados e relacionamento entre tabelas
+<br>
+<img src="https://github.com/Grupo4IBM/Project/blob/master/relatorios%20de%20reuniao/modelo%20relacionamento/modelo.jpg" width="750" height="400" />
+<br>
+<br>
+
 Em ...\src\main\java\com\tudoDeBom\Project encontramos os pacotes criados para desenvolvimento da API, nestes pacotes teremos Classes e Interfaces que mais adiante veremos como funcionam e para que servem. Entendendo melhor os pacotes então, temos:
     
 <br> 
